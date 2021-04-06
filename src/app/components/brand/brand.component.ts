@@ -54,7 +54,7 @@ export class BrandComponent implements OnInit {
        this.brandService.delete(brand).subscribe(data=>{
          this.toastrService.success("Araç Silindi","Başarılı !")
          this.router.navigate(["cars"]).then(a=>window.location.reload())
-       },responseError=>{
+       },responseError=>{ 
            if(responseError.error.Errors.length>0){
              console.log(responseError.error.Errors);
              for(let i=0; i<responseError.error.Errors; i++){
