@@ -1,0 +1,46 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <div class="mb-3">
+    <label for="filterText" class="form-label">Araç Ara</label>
+    <input type="text " [(ngModel)]="filterText"
+     class="form-control" id="filterText" placeholder="Arama İfadesi Giriniz">
+  </div>
+
+  <div *ngIf="filterText" class="alert alert-primary">
+    {{filterText}} aradınız
+  </div>
+
+<table class="table" >
+    <thead *ngIf="dataLoaded==true" class="table">
+        <tr>
+          <th>Araç Id</th>
+            <th>Araç Ad </th>
+            <th>Marka Ad</th>
+            <th>Model Yılı</th>
+            <th>Renk Ad</th>
+            <th>Günlük Fiyat</th>
+            <th>Kdv'li Fiyat</th>
+            <th>Açıklama</th>
+            <th></th>
+            
+        </tr>
+    </thead>
+
+
+    <tbody>
+    <tr *ngFor="let car of carsDetail | filterPipe:filterText">
+        <td>{{car.carId}}</td>
+        <td>{{car.carName}}</td>
+        <td>{{car.brandName | uppercase }}</td>
+        <td>{{car.modelYear}}</td>
+        <td>{{car.colorName}}</td>
+        <td>{{car.dailyPrice | currency}}</td>
+        <td>{{car.description}}</td>
+        <td><Button (Click)="addToCart(car)" class="btn btn-success">Kirala </Button></td>
+
+
+    </tr>
+  </tbody>
+</table>

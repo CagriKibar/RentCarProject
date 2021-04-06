@@ -1,0 +1,18 @@
+
+<table class="table table-striped" >
+    <thead *ngIf="dataLoaded==true" class="table">
+        <tr>
+            <th>Marka Id</th>
+            <th>Marka Ad</th> 
+        </tr>
+    </thead>
+
+
+
+    <tr *ngFor="let color of colors">
+        <td>{{color.colorId}}</td>
+        <td>{{color.colorName}}</td>
+        
+
+    </tr>
+</table>

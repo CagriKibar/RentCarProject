@@ -1,0 +1,22 @@
+
+<table class="table table-striped" >
+    <thead *ngIf="dataLoaded==true" class="table">
+        <tr>
+            <th>Marka Id</th>
+            <th>Marka Ad</th> 
+            <th>Marka Ad</th> 
+            <th>Marka Ad</th> 
+        </tr>
+    </thead>
+
+
+
+    <tr *ngFor="let carImage of carImages">
+        <td>{{carImage.Id}}</td>
+        <td>{{carImage.carId}}</td>
+        <td>{{carImage.imagePath}}</td>
+        <td>{{carImage.date}}</td>
+        
+
+    </tr>
+</table>
