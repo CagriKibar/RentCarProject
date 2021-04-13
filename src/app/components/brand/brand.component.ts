@@ -61,7 +61,7 @@ export class BrandComponent implements OnInit {
                this.toastrService.error(responseError.console.error[i].ErrorMessage,"Doğrulama Hatası");
              }
              
-           }
+           }  
            
           } )
           

@@ -1,18 +1,35 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
 
-<table class="table table-striped" >
+  <div class="mb-3">
+    <label for="filterText" class="form-label">Renk Ara</label>
+    <!-- <input type="text " [(ngModel)]="filterText"
+     class="form-control" id="filterText" placeholder="Arama İfadesi Giriniz">
+  </div> -->
+
+  <div *ngIf="filterText" class="alert alert-primary">
+    {{filterText}} aradınız
+  </div>
+
+<table class="table" >
     <thead *ngIf="dataLoaded==true" class="table">
         <tr>
-            <th>Marka Id</th>
-            <th>Marka Ad</th> 
+            
+            <th>Renklerimiz </th>
+
         </tr>
     </thead>
 
-
-
-    <tr *ngFor="let color of colors">
-        <td>{{color.colorId}}</td>
-        <td>{{color.colorName}}</td>
+ 
+    <tbody>
+    <tr *ngFor="let color of colors ">
         
-
+        <td>{{color.colorName}} </td>
+        
+        <!-- <td><Button (Click)="addToCart(color)" class="btn btn-success">Kirala </Button></td> -->
+       <td> <button class="btn btn-danger" (click)="delete(color)" >Sil</button></td> 
+ 
     </tr>
+  </tbody>
 </table>

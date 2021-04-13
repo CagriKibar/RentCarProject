@@ -25,6 +25,9 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
+// import { CarDetailComponent } from './components/car-detail/car-detail.component';
+
 
 
 @NgModule({
@@ -50,6 +53,12 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
     BrandAddComponent,
     
     ColorAddComponent,
+    
+    CarDetailComponent,
+    
+    
+    
+    
     
    
   ],

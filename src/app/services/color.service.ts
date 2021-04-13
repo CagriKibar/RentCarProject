@@ -24,4 +24,10 @@ export class ColorService {
   add(color:Color):Observable<ResponseModel>{
      return this.httpClient.post<ResponseModel>(this.apiUrl+"colors/add",color)
     }
+    delete(color:Color):Observable<ResponseModel>{
+      return this.httpClient.post<ResponseModel>(this.apiUrl+"colors/delete",color)
+     }
+     update(color:Color):Observable<ResponseModel>{
+      return this.httpClient.post<ResponseModel>(this.apiUrl+"colors/update",color)
+     }
   }

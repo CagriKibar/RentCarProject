@@ -1,46 +1,30 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
-    <span class="visually-hidden">Loading...</span>
+<h3 *ngIf="cars; else: noCar">Araç Listesi</h3>
+
+<div class="row">
+  <ng-template #noCar>
+
+    <div class="alert alert-primary" role="alert">
+      Bu kategoride Ürün yoktur
+    </div>
+    </ng-template>
+    
+  <div *ngFor="let car of cars" class="card" style="width: 18rem;">
+    
+    <div class="card-body">
+      <div   >
+        <!-- <img class="rounded float-start" src="https://localhost:44386/{{ car.imagePath }}" -->
+        <img src="https://localhost:44386{{ car.imagePath ? car.imagePath : '/Images/null.jpg' }}"
+          class="d-block w-100" height="365" />
+      </div>
+      <h5 class="card-title">{{car.carId}}</h5>
+      <h5 class="card-title">{{car.carName}}</h5>
+      <h5 class="card-title">{{car.brandName}}</h5>
+      <h5 class="card-title">{{car.modelYear}}</h5>
+      <h5 class="card-title">{{car.colorName}}</h5>   
+      <h5 class="card-title">{{car.dailyPrice}}</h5>
+              
+      <p class="card-text">{{car.description}}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
   </div>
 
-  <div class="mb-3">
-    <label for="filterText" class="form-label">Araç Ara</label>
-    <input type="text " [(ngModel)]="filterText"
-     class="form-control" id="filterText" placeholder="Arama İfadesi Giriniz">
-  </div>
-
-  <div *ngIf="filterText" class="alert alert-primary">
-    {{filterText}} aradınız
-  </div>
-
-<table class="table" >
-    <thead *ngIf="dataLoaded==true" class="table">
-        <tr>
-          <th>Araç Id</th>
-            <th>Araç Ad </th>
-            <th>Marka Ad</th>
-            <th>Model Yılı</th>
-            <th>Renk Ad</th>
-            <th>Günlük Fiyat</th>
-            <th>Kdv'li Fiyat</th>
-            <th>Açıklama</th>
-            <th></th>
-            
-        </tr>
-    </thead>
-
-
-    <tbody>
-    <tr *ngFor="let car of carsDetail | filterPipe:filterText">
-        <td>{{car.carId}}</td>
-        <td>{{car.carName}}</td>
-        <td>{{car.brandName | uppercase }}</td>
-        <td>{{car.modelYear}}</td>
-        <td>{{car.colorName}}</td>
-        <td>{{car.dailyPrice | currency}}</td>
-        <td>{{car.description}}</td>
-        <td><Button (Click)="addToCart(car)" class="btn btn-success">Kirala </Button></td>
-
-
-    </tr>
-  </tbody>
-</table>

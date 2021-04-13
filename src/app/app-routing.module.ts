@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
+import { CarImageComponent } from './components/car-image/car-image.component';
 import { CarComponent } from './components/car/car.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ColorComponent } from './components/color/color.component';
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:"brands/add", component:BrandAddComponent},
   {path:"rentals", component:RentalComponent},
   {path:"cars/brand/:brandId", component:CarComponent},
-  
+  {path:"cars/colors/:colorId", component:ColorComponent},
+  {path:"cars/images/getall",component:CarImageComponent},
   {path:"cars/add",component:CarAddComponent}
 
 ];
